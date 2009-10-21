@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:group name="root">
+        <xs:choice>
+            <xs:element name="errors">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="error" type="string" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="invoice-timeline-items">
+             <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="invoice_timeline_item" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="reference" type="string"/>
+                                    <xs:element name="summary" type="string"/>
+                                    <xs:element name="description" type="string"/>
+                                    <xs:element name="dated_on" type="dateTime"/>
+                                    <xs:element name="amount" type="decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:xs:(1)ttribute name="type" fixed="array"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="timeline-items">
+                <xs:xs:complexType>
+                    <xs:xs:sequence>
+                        <xs:xs:element name="timeline_item">
+                            <xs:xs:complexType>
+                                <xs:xs:sequence>
+                                    <xs:xs:element name="description" type="string"/>
+                                    <xs:xs:element name="nature" type="string"/>
+                                    <xs:xs:element name="dated_on" type="dateTime"/>
+                                    <xs:xs:element name="amount_due" type="decimal"/>
+                                    <xs:xs:element name="is_personal" type="boolean"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="type" fixed="array"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="contact">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:int">
+                                        <xs:attribute name="type" fixed="integer"/>                                        
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="organisation-name" type="string"/>
+                        <xs:element name="first-name" type="string"/>
+                        <xs:element name="last-name" type="string"/>
+                        <xs:element name="address1" type="string"/>
+                        <xs:element name="address2" type="string"/>
+                        <xs:element name="address3" type="string"/>
+                        <xs:element name="town" type="string"/>
+                        <xs:element name="region" type="string"/>
+                        <xs:element name="country" type="string"/>
+                        <xs:element name="postcode" type="string"/>
+                        <xs:element name="phone-number" type="string"/>
+                        <xs:element name="email" type="string"/>
+                        <xs:element name="contact-name-on-invoices">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:boolean">
+                                        <xs:attribute name="type" fixed="boolean"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="sales-tax-registration-number" type="string"/>
+                        <xs:element name="uses-contact-invoice-sequence">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:boolean">
+                                        <xs:attribute name="type" fixed="string"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="expense">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="booleanType"/>
+                        <xs:element name="user-id" type="integerType"/>
+                        <xs:element name="dated-on" type="datetimeType"/>
+                        <xs:element name="description" type="xs:string"/>
+                        <xs:element name="engine-size-index" type="integerType"/>
+                        <xs:element name="engine-type-index" type="integerType"/>
+                        <xs:element name="expense-type">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:restriction base="string">
+                                        <xs:enumeration value="Accommodation and Meals" />
+                                        <xs:enumeration value="Accountancy Fees" />
+                                        <xs:enumeration value="Advertising and Promotion" />
+                                        <xs:enumeration value="Bank/Finance Charges" />
+                                        <xs:enumeration value="Books and Journals" />
+                                        <xs:enumeration value="Business Entertaining" />
+                                        <xs:enumeration value="Charitable Donations" />
+                                        <xs:enumeration value="Childcare Vouchers" />
+                                        <xs:enumeration value="Commission Paid" />
+                                        <xs:enumeration value="Computer Hardware" />
+                                        <xs:enumeration value="Computer Software" />
+                                        <xs:enumeration value="Consultancy Fees" />
+                                        <xs:enumeration value="Cost of Sales" />
+                                        <xs:enumeration value="Currency Exchange Loss" />
+                                        <xs:enumeration value="Equipment Hire" />
+                                        <xs:enumeration value="Insurance" />
+                                        <xs:enumeration value="Interest Payable" />
+                                        <xs:enumeration value="Internet &amp; Telephone" />
+                                        <xs:enumeration value="Leasing Payments" />
+                                        <xs:enumeration value="Legal and Professional Fees" />
+                                        <xs:enumeration value="Materials" />
+                                        <xs:enumeration value="Mobile Phone" />
+                                        <xs:enumeration value="Motor Expenses" />
+                                        <xs:enumeration value="Office Costs" />
+                                        <xs:enumeration value="Office Equipment" />
+                                        <xs:enumeration value="Other Computer Costs" />
+                                        <xs:enumeration value="Pension (Annuity)" />
+                                        <xs:enumeration value="Pension (Personal/Stakeholder)" />
+                                        <xs:enumeration value="Postage" />
+                                        <xs:enumeration value="Printing" />
+                                        <xs:enumeration value="Purchase of Capital Asset" />
+                                        <xs:enumeration value="Staff Entertaining" />
+                                        <xs:enumeration value="Staff Training" />
+                                        <xs:enumeration value="Stationery" />
+                                        <xs:enumeration value="Subcontractor Costs" />
+                                        <xs:enumeration value="Subscriptions" />
+                                        <xs:enumeration value="Sundries" />
+                                        <xs:enumeration value="Travel" />
+                                        <xs:enumeration value="Use Of Home" />
+                                        <xs:enumeration value="Web Hosting" />
+                                    </xs:restriction>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:group>
+    <xs:complexType name="booleanType">
+        <xs:simpleContent>
+            <xs:extension base="xs:boolean">
+                <xs:attribute name="type" fixed="boolean"/>
+            </xs:extension>
+        </xs:simpleContent>        
+    </xs:complexType>
+    <xs:complexType name="datetimeType">
+        <xs:simpleContent>
+            <xs:extension base="xs:dateTime">
+                <xs:attribute name="type" fixed="datetime"/>
+            </xs:extension>
+        </xs:simpleContent>        
+    </xs:complexType>
+    <xs:complexType name="decimalType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="type" fixed="decimal"/>
+            </xs:extension>
+        </xs:simpleContent>        
+    </xs:complexType>
+    <xs:complexType name="floatType">
+        <xs:simpleContent>
+            <xs:extension base="xs:float">
+                <xs:attribute name="type" fixed="float"/>
+            </xs:extension>
+        </xs:simpleContent>        
+    </xs:complexType>
+    <xs:complexType name="integerType">
+        <xs:simpleContent>
+            <xs:extension base="xs:int">
+                <xs:attribute name="type" fixed="integer"/>
+            </xs:extension>
+        </xs:simpleContent>        
+    </xs:complexType>
+</xs:schema>
